@@ -25,7 +25,7 @@
         "ms-vscode.makefile-tools"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "${containerEnv:PYTHON_PATH}",
+        "python.defaultInterpreterPath": "/usr/local/bin/python3",
         "python.linting.enabled": true,
         "python.linting.pylintEnabled": false,
         "python.linting.flake8Enabled": true,
