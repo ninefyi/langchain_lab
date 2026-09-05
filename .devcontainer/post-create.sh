@@ -13,12 +13,14 @@ NC='\033[0m' # No Color
 
 # Step 1: Install Python dependencies
 echo -e "${BLUE}📦 Installing Python dependencies...${NC}"
-if command -v uv &> /dev/null; then
+if command -v uv &> /dev/null && [ -f pyproject.toml ]; then
     echo "Using uv (recommended)..."
     uv sync
-else
+elif [ -f requirements.txt ]; then
     echo "Using pip (fallback)..."
     pip install -r requirements.txt
+else
+    echo -e "${YELLOW}⚠️  No requirements.txt or pyproject.toml found. Skipping dependency install.${NC}"
 fi
 echo -e "${GREEN}✓ Dependencies installed${NC}"
 echo ""
