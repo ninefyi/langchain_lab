@@ -2,12 +2,10 @@
   "name": "LangChain Foundations",
   "description": "Development container for LangChain Academy Foundation Course - Introduction to LangChain Python",
   "image": "mcr.microsoft.com/devcontainers/python:3.14",
-  
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -30,7 +28,9 @@
         "python.linting.pylintEnabled": false,
         "python.linting.flake8Enabled": true,
         "python.formatting.provider": "black",
-        "python.formatting.blackArgs": ["--line-length=100"],
+        "python.formatting.blackArgs": [
+          "--line-length=100"
+        ],
         "editor.formatOnSave": true,
         "[python]": {
           "editor.defaultFormatter": "ms-python.python",
@@ -40,7 +40,9 @@
           }
         },
         "jupyter.notebookFileRoot": "${workspaceFolder}",
-        "python.analysis.extraPaths": ["${workspaceFolder}"],
+        "python.analysis.extraPaths": [
+          "${workspaceFolder}"
+        ],
         "files.exclude": {
           "**/__pycache__": true,
           "**/*.pyc": true,
@@ -52,8 +54,11 @@
       }
     }
   },
-
-  "forwardPorts": [8888, 8000, 8001],
+  "forwardPorts": [
+    8888,
+    8000,
+    8001
+  ],
   "portsAttributes": {
     "8888": {
       "label": "Jupyter Lab",
@@ -68,11 +73,8 @@
       "onAutoForward": "notify"
     }
   },
-
   "postCreateCommand": ".devcontainer/post-create.sh",
-  
   "remoteUser": "vscode",
-
   "containerEnv": {
     "PYTHONPATH": "${containerWorkspaceFolder}",
     "JUPYTER_ENABLE_LAB": "yes"
