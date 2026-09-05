@@ -20,11 +20,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     portaudio19-dev \
     libsndfile1-dev \
     ffmpeg \
+    nodejs \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv (recommended package manager)
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
+
+# Install archify as a global agent skill
+RUN npm install -g tt-a1i/archify
 
 # Install pip (as fallback)
 RUN python -m pip install --upgrade pip setuptools wheel

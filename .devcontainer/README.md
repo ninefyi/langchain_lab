@@ -71,6 +71,30 @@ jupyter lab --ip=0.0.0.0 --allow-root
 
 Then open the URL shown in your terminal (usually `http://localhost:8888`).
 
+## Using Archify for System Diagrams
+
+Archify is an agent-aware skill for generating interactive system architecture diagrams. Use it with Claude or other AI agents to visualize system designs:
+
+```bash
+# Create a system architecture diagram
+archify --help
+
+# Or use with an AI agent chat to generate diagrams directly
+# Archify is globally installed and ready to use with your agent tool calls
+```
+
+**Features**:
+- Five diagram types: Architecture, Workflow, Sequence, Blueprint, Classic
+- Interactive visualization with search and route tracing
+- Export to PNG, SVG, WebM, and share cards
+- Dark/light themes
+- Compare before/after architecture changes
+
+**Resources**:
+- [Archify Project](https://tt-a1i.github.io/archify/)
+- [Scenario Guide](https://tt-a1i.github.io/archify/guide.html)
+- [Proof Lab Gallery](https://tt-a1i.github.io/archify/gallery.html)
+
 ## Installed Tools
 
 - **Python 3.14** - Core runtime
@@ -80,6 +104,8 @@ Then open the URL shown in your terminal (usually `http://localhost:8888`).
 - **IPython** - Enhanced Python REPL
 - **Black, isort, flake8** - Code formatting and linting
 - **pytest** - Testing framework
+- **Node.js & npm** - JavaScript runtime and package manager
+- **Archify** - Agent Skill for generating system architecture diagrams
 - **All LangChain packages** - LangChain, LangGraph, integrations, etc.
 
 ## Resources
@@ -108,7 +134,7 @@ Then open the URL shown in your terminal (usually `http://localhost:8888`).
 
 ## Features
 
-✅ Python 3.12+ environment
+✅ Python 3.14 environment
 ✅ Both `uv` and `pip` support
 ✅ Jupyter Lab pre-configured
 ✅ VS Code extensions for Python/Jupyter
@@ -117,6 +143,8 @@ Then open the URL shown in your terminal (usually `http://localhost:8888`).
 ✅ Port forwarding configured
 ✅ Git and GitHub CLI included
 ✅ All LangChain ecosystem packages
+✅ Node.js & npm runtime
+✅ Archify for AI-generated system diagrams
 
 ## Support
 
