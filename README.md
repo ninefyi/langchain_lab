@@ -2,7 +2,7 @@
 
 Workshop materials adapted from [LangChain Academy's Introduction to LangChain](https://academy.langchain.com/courses/foundation-introduction-to-langchain-python).
 
-This repository imports the upstream course at commit `f032e85ee9060f60050fbc6aa53c089b9553df7f` and currently includes Modules 1 and 2.
+This repository imports the upstream course at commit `f032e85ee9060f60050fbc6aa53c089b9553df7f` and currently includes Modules 1, 2, and 3.
 
 ## Prerequisites
 
@@ -28,8 +28,7 @@ uv run jupyter lab
 
 - `notebooks/module-1`: foundational models, prompting, tools, memory, multimodal messages, and the Personal Chef project
 - `notebooks/module-2`: MCP, context and state, multi-agent systems, and the Wedding Planner project
-
-Module 3 and its Node/pnpm agent-chat UI are intentionally not part of the baseline workshop.
+- `notebooks/module-3`: managing messages, human-in-the-loop workflows, dynamic models/prompts/tools, and the Email Agent project
 
 ## Upstream Updates
 
