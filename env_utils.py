@@ -5,9 +5,9 @@
 
 # ========== STANDARD LIBRARY IMPORTS ONLY (no external dependencies) ==========
 import os
-import sys
-import shutil
 import re
+import shutil
+import sys
 from pathlib import Path
 
 
@@ -68,10 +68,10 @@ def check_python_executable_and_version():
     # Check Python version against basic requirements (will verify against pyproject.toml later)
     if py_version.major < 3 or (py_version.major == 3 and py_version.minor < 12):
         issues.append(f"⚠️  Python {py_version_str} is below minimum required version 3.12")
-    elif py_version.major == 3 and py_version.minor >= 14:
-        issues.append(f"⚠️  Python {py_version_str} is above maximum supported version (< 3.14)")
+    elif py_version.major == 3 and py_version.minor >= 15:
+        issues.append(f"⚠️  Python {py_version_str} is above maximum supported version (< 3.15)")
     else:
-        print(f"✅ Python version {py_version_str} is in expected range (>=3.12, <3.14)")
+        print(f"✅ Python version {py_version_str} is in expected range (>=3.12, <=3.14)")
 
     # Check sys.prefix and base_prefix
     print(f"\nEnvironment paths:")
@@ -101,9 +101,10 @@ def check_python_executable_and_version():
 
 # ========== EXTERNAL DEPENDENCY IMPORTS (with error handling) ==========
 try:
-    from dotenv import dotenv_values, load_dotenv
     import tomllib
     from importlib import metadata
+
+    from dotenv import dotenv_values, load_dotenv
     from packaging.requirements import Requirement
     from packaging.specifiers import SpecifierSet
     from packaging.version import Version
