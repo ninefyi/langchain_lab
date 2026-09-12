@@ -1,153 +1,25 @@
-# Dev Container Setup for LangChain Foundations
+# Dev Container Setup
 
-This directory contains the configuration for running the LangChain Foundations course in GitHub Codespaces or Docker.
+This workshop uses `mcr.microsoft.com/devcontainers/python:3.14`, configured with Python 3.14 and the latest LangChain ecosystem packages.
 
-## Quick Start
+## Start
 
-### Using GitHub Codespaces
-1. Click "Code" → "Codespaces" → "Create codespace on main"
-2. Wait for the container to build and dependencies to install
-3. Update `.env` with your API keys
-4. Start exploring the course materials!
+1. Open the repository in VS Code.
+2. Choose **Dev Containers: Reopen in Container**.
+3. During container creation, `post-create.sh` installs the locked Python environment with `uv sync --frozen`.
+4. Copy `example.env` to `.env` if it was not created automatically, then add the required API keys.
 
-### Using Docker Locally
-```bash
-# Build the image
-docker build -t langchain-foundations .devcontainer
-
-# Run the container
-docker run -it -v $(pwd):/workspaces -p 8888:8888 langchain-foundations
-```
-
-## Files Included
-
-### `Dockerfile`
-- Python 3.14 with all system dependencies
-- Supports both `uv` (recommended) and `pip` package managers
-- Pre-installs Jupyter Lab, development tools, and all course dependencies
-
-### `devcontainer.json`
-- VS Code configuration with recommended extensions:
-  - Python, Pylance, Jupyter support
-  - Ruff linter, Black formatter
-  - Git Lens for version control
-  - GitHub Copilot integration
-- Port forwarding: 8888 (Jupyter), 8000 (LangGraph API), 8001 (Dev server)
-- Automatic dependency installation on container creation
-
-### `post-create.sh`
-- Runs after container setup
-- Installs Python dependencies using `uv` or `pip`
-- Sets up `.env` file from example
-- Verifies environment is ready
-- Displays setup instructions
-
-## Environment Setup
-
-After the container starts, update your `.env` file with:
+After setup completes, run:
 
 ```bash
-# Required
-OPENAI_API_KEY='your-openai-key-here'
-TAVILY_API_KEY='your-tavily-key-here'
-
-# Optional (Module 1, Lesson 1 only)
-ANTHROPIC_API_KEY='your-anthropic-key-here'
-GOOGLE_API_KEY='your-google-key-here'
-
-# Optional (for LangSmith tracing)
-LANGSMITH_API_KEY='your-langsmith-key-here'
-LANGSMITH_PROJECT=lca-lc-foundation
-# LANGSMITH_TRACING=true  # Uncomment to enable
+uv run python env_utils.py
+uv run jupyter lab --ip=0.0.0.0 --allow-root
 ```
 
-## Starting Jupyter Lab
+Port 8888 is forwarded for Jupyter Lab. Ports 8000 and 8001 remain available for LangGraph development and local services.
 
-Once the environment is set up, start Jupyter Lab:
+## Prerequisites
 
-```bash
-jupyter lab --ip=0.0.0.0 --allow-root
-```
+The Dev Container provides Python, Git, GitHub CLI, and VS Code Python/Jupyter extensions. `uv` manages the course environment; the committed `uv.lock` makes dependency installation reproducible.
 
-Then open the URL shown in your terminal (usually `http://localhost:8888`).
-
-## Using Archify for System Diagrams
-
-Archify is an agent-aware skill for generating interactive system architecture diagrams. Use it with Claude or other AI agents to visualize system designs:
-
-```bash
-# Create a system architecture diagram
-archify --help
-
-# Or use with an AI agent chat to generate diagrams directly
-# Archify is globally installed and ready to use with your agent tool calls
-```
-
-**Features**:
-- Five diagram types: Architecture, Workflow, Sequence, Blueprint, Classic
-- Interactive visualization with search and route tracing
-- Export to PNG, SVG, WebM, and share cards
-- Dark/light themes
-- Compare before/after architecture changes
-
-**Resources**:
-- [Archify Project](https://tt-a1i.github.io/archify/)
-- [Scenario Guide](https://tt-a1i.github.io/archify/guide.html)
-- [Proof Lab Gallery](https://tt-a1i.github.io/archify/gallery.html)
-
-## Installed Tools
-
-- **Python 3.14** - Core runtime
-- **uv** - Fast Python package manager (recommended)
-- **pip** - Alternative package manager
-- **Jupyter Lab** - Interactive notebooks
-- **IPython** - Enhanced Python REPL
-- **Black, isort, flake8** - Code formatting and linting
-- **pytest** - Testing framework
-- **Node.js & npm** - JavaScript runtime and package manager
-- **Archify** - Agent Skill for generating system architecture diagrams
-- **All LangChain packages** - LangChain, LangGraph, integrations, etc.
-
-## Resources
-
-- 📚 [Course](https://academy.langchain.com/courses/foundation-introduction-to-langchain-python)
-- 📖 [LangChain Docs](https://python.langchain.com)
-- 🔗 [LangGraph Docs](https://langchain-ai.github.io/langgraph)
-- 🤖 [LangChain Templates](https://github.com/langchain-ai/langchain-templates)
-
-## Troubleshooting
-
-### Dependencies not installing
-- Check that `uv` or `pip` is working: `which uv` or `which pip`
-- Verify internet connection
-- Try running `uv sync --force` or `pip install -r requirements.txt --force-reinstall`
-
-### Jupyter Lab not starting
-- Ensure port 8888 is not in use
-- Try: `jupyter lab --ip=0.0.0.0 --allow-root --no-browser`
-- Check for errors in terminal output
-
-### API key errors
-- Verify `.env` file exists and contains correct keys
-- Use `python env_utils.py` to validate environment
-- Keys should not have quotes in `.env` file
-
-## Features
-
-✅ Python 3.14 environment
-✅ Both `uv` and `pip` support
-✅ Jupyter Lab pre-configured
-✅ VS Code extensions for Python/Jupyter
-✅ Automatic dependency installation
-✅ Development tools (linters, formatters)
-✅ Port forwarding configured
-✅ Git and GitHub CLI included
-✅ All LangChain ecosystem packages
-✅ Node.js & npm runtime
-✅ Archify for AI-generated system diagrams
-
-## Support
-
-For course-specific questions, visit [LangChain Academy](https://academy.langchain.com).
-
-For dev container issues, check [Dev Containers Documentation](https://containers.dev/).
+Module 2 uses `uvx` for its MCP-server exercise. Module 3's Node/pnpm chat UI is not part of this workshop baseline.
