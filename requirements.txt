@@ -987,9 +987,9 @@ langgraph-runtime-inmem==0.34.0 \
     --hash=sha256:0a316a47e7b330671bfb7982701a318b0caf25905c9ad0624146365865f4c9e5 \
     --hash=sha256:c7014de633f20008a520ab51165faa14a21f49871d91279a604cff4798d60f79
     # via langgraph-api
-langgraph-sdk==0.4.4 \
-    --hash=sha256:39afe416c91742925e6f8a93715f566d499b36e1b636b804a4ffe3190e4f4e64 \
-    --hash=sha256:4e651ffa09de695681579396375377bdde23bedbc8e35b070e615cbd5af7da8b
+langgraph-sdk==0.4.6 \
+    --hash=sha256:57122b02bda41d37a97a5e09eb018aa8c9b3dc85c433880073779bd9324b7eea \
+    --hash=sha256:ea5b1749d70987d741c9b9fe2b7e1c5f7da7e4d102f64e390333c1890c9bbd5b
     # via
     #   langgraph
     #   langgraph-api
