@@ -963,9 +963,9 @@ langgraph==1.2.11 \
     #   langgraph-api
     #   langgraph-runtime-inmem
     #   lc-foundations
-langgraph-api==0.14.0 \
-    --hash=sha256:582f08835f449d80d14acc0d2fd2de2396392d24d92376852c264e56af6f450b \
-    --hash=sha256:923e20e32c327ea90b425e4447ea79b9b3d16b85eccf7fc389cd2f791cf003fb
+langgraph-api==0.15.0 \
+    --hash=sha256:2cea18a0fdb26636382bdb6968f0a9d269f21e13fc4f741195d9cd4c17bbb759 \
+    --hash=sha256:5d923b0417a1e8df817e6a308492a9a0941bb99543f0ef131965cf6c6e872172
     # via lc-foundations
 langgraph-checkpoint==4.2.0 \
     --hash=sha256:0547fd228935a0b758865de3a3d6d7a2537c308895d0f9ab092ce9151b5da942 \
